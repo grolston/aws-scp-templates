@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyIamUserAccessIfNotMfa",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "ForAllValues:ArnEquals": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:user/*"
+                    ]
+                },
+                "BoolIfExists": {
+                    "aws:MultiFactorAuthPresent": false
+                }
+            }
+        }
+    ]
+}
