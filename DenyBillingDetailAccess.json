@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "DenyAccessToBilling",
+          "Effect": "Deny",
+          "Action": [
+              "ce:*",
+              "aws-portal:*",
+              "cur:*"
+          ],
+          "Resource": "*",
+          "Condition": {
+              "ForAllValues:ArnNotEquals": {
+                  "aws:PrincipalARN": [
+                    "arn:aws:iam::*:role/My-Billing-Admin"
+                  ]
+              }
+          }
+      }
+  ]
+}
