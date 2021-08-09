@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "ProtectAWSBackupVault",
+          "Effect": "Deny",
+          "Action": [
+              "backup:DeleteBackupVault",
+              "backup:DeleteRecoveryPoint"
+          ],
+          "Resource": [
+              "*"
+          ]
+      }
+  ]
+}
