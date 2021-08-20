@@ -1,0 +1,53 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RestrictRegions",
+      "Effect": "Deny",
+      "NotAction": [
+        "a4b:*",
+        "budgets:*",
+        "ce:*",
+        "chime:*",
+        "cloudfront:*",
+        "cur:*",
+        "globalaccelerator:*",
+        "health:*",
+        "iam:*",
+        "importexport:*",
+        "mobileanalytics:*",
+        "organizations:*",
+        "route53:*",
+        "route53domains:*",
+        "shield:*",
+        "support:*",
+        "trustedadvisor:*",
+        "waf:*",
+        "wellarchitected:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "us-east-1",
+            "us-east-2"
+          ]
+        },
+        "ArnNotLike": {
+          "aws:PrincipalARN": [
+            "arn:aws:iam::*:role/service-role/AWSControlTowerAdmin",
+            "arn:aws:iam::*:role/service-role/AWSControlTowerCloudTrailRole",
+            "arn:aws:iam::*:role/service-role/AWSControlTowerStackSetRole",
+            "arn:aws:iam::*:role/aws-controltower-AdministratorExecutionRole",
+            "arn:aws:iam::*:role/aws-controltower-CloudWatchLogsRole",
+            "arn:aws:iam::*:role/aws-controltower-ConfigRecorderRole",
+            "arn:aws:iam::*:role/aws-controltower-ForwardSnsNotificationRole",
+            "arn:aws:iam::*:role/aws-controltower-ReadOnlyExecutionRole",
+            "arn:aws:iam::*:role/AWSControlTower_VPCFlowLogsRole",
+            "arn:aws:iam::*:role/AWSControlTowerExecution"
+          ]
+        }
+      }
+    }
+  ]
+}
