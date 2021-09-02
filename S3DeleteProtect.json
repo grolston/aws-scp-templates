@@ -1,0 +1,27 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "DeleteProtectScp",
+          "Effect": "Deny",
+          "Action": [
+              "s3:Delete*",
+              "s3:PutBucketPublicAccessBlock",
+              "s3:PutBucketOwnershipControls",
+              "s3:BypassGovernanceRetention",
+              "s3:PutBucketPolicy",
+              "s3:ReplicateDelete",
+              "s3:PutObjectAcl",
+              "s3:PutBucketCORS",
+              "s3:PutObjectLegalHold",
+              "s3:PutBucketAcl",
+              "s3:PutObjectRetention",
+              "s3:PutObjectVersionAcl",
+              "s3:PutLifecycleConfiguration"
+          ],
+          "Resource": [
+              "*"
+          ]
+      }
+  ]
+}
