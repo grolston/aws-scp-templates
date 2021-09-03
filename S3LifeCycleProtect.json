@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "S3LifeCycleProtect",
+          "Effect": "Deny",
+          "Action": [
+              "s3:BypassGovernanceRetention",
+              "s3:PutObjectLegalHold",
+              "s3:PutObjectRetention",
+              "s3:PutLifecycleConfiguration",
+              "s3:PutBucketObjectLockConfiguration"
+          ],
+          "Resource": [
+              "*"
+          ]
+      }
+  ]
+}
