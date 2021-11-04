@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": "arn:aws:iam::*:role/*AdministratorAccess*"
+                }
+            },
+            "Action": [
+                "config:DeleteConfigurationRecorder",
+                "config:DeleteDeliveryChannel",
+                "config:DeleteRetentionConfiguration",
+                "config:PutConfigurationRecorder",
+                "config:PutDeliveryChannel",
+                "config:PutRetentionConfiguration",
+                "config:StopConfigurationRecorder",
+                "config:PutConfigRule",
+                "config:DeleteConfigRule",
+                "config:DeleteEvaluationResults",
+                "config:DeleteConfigurationAggregator",
+                "config:PutConfigurationAggregator"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Deny",
+            "Sid": "DenyDisableConfig"
+        }
+    ]
+}
